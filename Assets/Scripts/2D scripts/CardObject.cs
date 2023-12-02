@@ -24,6 +24,17 @@ public class CardObject : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoi
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (object_game.TryGetComponent(out DefenceController _)){
+            if (GameManager.instance.generatorCoins < DefenceController.generatorCost)
+                return;
+            GameManager.instance.generatorCoins -= DefenceController.generatorCost;
+        }
+        else if (object_game.TryGetComponent(out GeneratorController _)){
+            if (GameManager.instance.generatorCoins < GeneratorController.generatorCost)
+                return;
+            GameManager.instance.generatorCoins -= GeneratorController.generatorCost;
+        }
+
         objectDragInstance = Instantiate(object_drag, canvas.transform);
         objectDragInstance.transform.position = Input.mousePosition;
         objectDragInstance.GetComponent<ObjectDragging>().card = this;
@@ -33,6 +44,7 @@ public class CardObject : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoi
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        
         gameManager.PlaceObject();
         gameManager.draggingObject = null;
         Destroy(objectDragInstance);
