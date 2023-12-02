@@ -18,13 +18,13 @@ public class DefenceController : Controller{
     }
 
     private void Update(){
-        if (enemyWave.enemies.Length > 0 && isAttacking == false)
+        if (enemyWave.GetCountEnemiesInLine(line) > 0 && isAttacking == false)
             if (enemyWave.FindFirstNoNullEnemy() != null)
                 if (objectContainer.transform.position.x <= enemyWave.FindFirstNoNullEnemy().transform.position.x)
                     isAttacking = true;
-        else if (enemyWave.enemies.Length == 0 && isAttacking == true)
+        if (enemyWave.GetCountEnemiesInLine(line) == 0 && isAttacking == true)
             isAttacking = false;
-        if (attackTime <= Time.time && enemyWave.enemies.Length > 0){
+        if (attackTime <= Time.time && isAttacking){
             GameObject bulletIntstance = Instantiate(bullet, transform);
             bulletIntstance.GetComponent<Bullet>().damage = damage;
             attackTime = Time.time + attackCooldown;

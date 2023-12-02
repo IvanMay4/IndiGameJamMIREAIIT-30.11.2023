@@ -9,6 +9,7 @@ public class Enemy2D : MonoBehaviour{
     public int damage;
     public bool isStopped;
     public float damageCooldown;
+    public int line;
     protected Vector3 move = new Vector3(0, 0, 0);
 
     protected void Awake(){
