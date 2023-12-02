@@ -18,7 +18,7 @@ public class DefenceController : Controller{
 
     private void Update()
     {
-        if (mobs.Count > 0 && isAttacking == false && transform.position.x <= mobs[0].transform.position.x)
+        if (mobs.Count > 0 && isAttacking == false && objectContainer.transform.position.x <= mobs[0].transform.position.x)
         {
             isAttacking = true;
         }
