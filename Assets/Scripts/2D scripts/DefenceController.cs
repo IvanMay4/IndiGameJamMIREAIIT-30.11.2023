@@ -5,16 +5,11 @@ using UnityEngine;
 
 public class DefenceController : Controller{
     public GameObject bullet;
-    public ObjectContainer objectContainer;
 
     private float attackTime;
     public float attackCooldown;
     public int damage;
     public bool isAttacking;
-
-    private void Awake(){
-        generatorCost = 100;
-    }
 
     private void Update()
     {

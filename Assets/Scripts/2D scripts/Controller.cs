@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour{
     public List<GameObject> mobs;
+    public ObjectContainer objectContainer;
     public int health;
-    public static int generatorCost;
 
     public void ReceiveDamage(int damage){
-        if (health - damage <= 0) Destroy(gameObject);
+        if (health - damage <= 0) {
+            objectContainer.isFull = false;
+            Destroy(gameObject);
+        }
         else health -= damage;
     }
 }

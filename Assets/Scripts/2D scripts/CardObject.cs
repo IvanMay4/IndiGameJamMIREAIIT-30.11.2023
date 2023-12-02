@@ -19,27 +19,25 @@ public class CardObject : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoi
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (objectDragInstance == null)
+            return;
         objectDragInstance.transform.position = Input.mousePosition;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (object_game.TryGetComponent(out DefenceController _)){
-            if (GameManager.instance.generatorCoins < DefenceController.generatorCost)
+        if (object_drag.CompareTag("DefenceDrag"))
+            if (gameManager.generatorCoins < gameManager.generatorCostDefence || gameManager.generatorCoins - gameManager.generatorCostGenerator < 0)
                 return;
-            GameManager.instance.generatorCoins -= DefenceController.generatorCost;
-        }
-        else if (object_game.TryGetComponent(out GeneratorController _)){
-            if (GameManager.instance.generatorCoins < GeneratorController.generatorCost)
+        if (object_drag.CompareTag("GeneratorDrag"))
+            if (gameManager.generatorCoins < gameManager.generatorCostGenerator || gameManager.generatorCoins - gameManager.generatorCostGenerator < 0)
                 return;
-            GameManager.instance.generatorCoins -= GeneratorController.generatorCost;
-        }
 
         objectDragInstance = Instantiate(object_drag, canvas.transform);
         objectDragInstance.transform.position = Input.mousePosition;
         objectDragInstance.GetComponent<ObjectDragging>().card = this;
 
-        GameManager.instance.draggingObject = objectDragInstance;
+        gameManager.draggingObject = objectDragInstance;
     }
 
     public void OnPointerUp(PointerEventData eventData)

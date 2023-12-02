@@ -8,7 +8,6 @@ public class GeneratorController : Controller{
     int time;
 
     void Awake(){
-        generatorCost = 50;
         health = 10;
         generatorPower = 50;
         generatorCooldown = 1 * 60;
@@ -21,6 +20,5 @@ public class GeneratorController : Controller{
             GameManager.instance.generatorCoins += generatorPower;
             time = 0;
         }
-        Debug.Log(generatorCost);
     }
 }

@@ -155,7 +155,7 @@ MonoBehaviour:
   draggingObject: {fileID: 0}
   currentContainer: {fileID: 0}
   textGeneratorCoins: {fileID: 1297222895}
-  generatorCoins: 0
+  generatorCoins: 1000
 --- !u!4 &15018142
 Transform:
   m_ObjectHideFlags: 0
