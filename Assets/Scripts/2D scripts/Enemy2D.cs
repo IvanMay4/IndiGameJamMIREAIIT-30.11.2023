@@ -31,7 +31,6 @@ public class Enemy2D : MonoBehaviour{
 
     public void OnTriggerEnter2D(Collider2D collision){
         if (collision.gameObject.layer == 8){
-            Debug.Log(collision);
             StartCoroutine(Attack(collision));
             isStopped = true;
         }
@@ -41,7 +40,6 @@ public class Enemy2D : MonoBehaviour{
         if (collision == null) isStopped = false;
         else{
             collision.gameObject.GetComponent<Controller>().ReceiveDamage(damage);
-            Debug.Log(damage + " " + collision.gameObject.GetComponent<Controller>().health);
             yield return new WaitForSeconds(damageCooldown);
             StartCoroutine(Attack(collision));
         }
