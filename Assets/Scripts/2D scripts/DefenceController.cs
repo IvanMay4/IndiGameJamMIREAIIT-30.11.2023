@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class DefenceController : Controller{
     public GameObject bullet;
+    public ObjectContainer objectContainer;
 
     private float attackTime;
     public float attackCooldown;
