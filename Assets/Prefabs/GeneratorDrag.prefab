@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: -7710808098930298718}
   - component: {fileID: 8341765481472424320}
   m_Layer: 7
-  m_Name: Mob_drag
-  m_TagString: DefenceDrag
+  m_Name: GeneratorDrag
+  m_TagString: GeneratorDrag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8301887, g: 0.7854363, b: 0.06787701, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

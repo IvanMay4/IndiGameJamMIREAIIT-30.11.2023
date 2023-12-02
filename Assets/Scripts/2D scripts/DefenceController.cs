@@ -3,18 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DefenceContoller : MonoBehaviour
-{
-    public List<GameObject> mobs;
+public class DefenceController : Controller{
     public GameObject bullet;
-    public ObjectContainer objectContainer;
 
     private float attackTime;
     public float attackCooldown;
     public int damage;
     public bool isAttacking;
-    public int health;
-    
 
     private void Update()
     {
@@ -34,18 +29,4 @@ public class DefenceContoller : MonoBehaviour
             attackTime = Time.time + attackCooldown;
         }
     }
-    
-    public void ReceiveDamage(int Damage)
-    {
-        if (health - Damage <= 0)
-        {
-            objectContainer.isFull = false;
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            health = health - Damage;
-        }
-    }
-
 }

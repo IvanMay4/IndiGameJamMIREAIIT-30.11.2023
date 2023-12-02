@@ -35,7 +35,7 @@ public class mobController : MonoBehaviour
         }
         else
         {
-            collision.gameObject.GetComponent<DefenceContoller>().ReceiveDamage(damage);
+            collision.gameObject.GetComponent<Controller>().ReceiveDamage(damage);
             yield return new WaitForSeconds(damageCooldown);
             StartCoroutine(Attack(collision));
         }
