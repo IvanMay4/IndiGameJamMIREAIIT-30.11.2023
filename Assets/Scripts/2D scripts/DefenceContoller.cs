@@ -7,7 +7,7 @@ public class DefenceContoller : MonoBehaviour
 {
     public List<GameObject> mobs;
     public GameObject bullet;
-    public GameObject toAttack;
+
     private float attackTime;
     public float attackCooldown;
     public int damage;
@@ -16,25 +16,20 @@ public class DefenceContoller : MonoBehaviour
 
     private void Update()
     {
-        if (mobs.Count > 0 && isAttacking == false)
+        if (mobs.Count > 0 && isAttacking == false && transform.position.x <= mobs[0].transform.position.x)
         {
             isAttacking = true;
-            GameObject mobInstance = mobs[0];
-            toAttack = mobInstance;
         }
         else if (mobs.Count == 0 && isAttacking == true)
         {
             isAttacking = false;
         }
-
-        if (toAttack != null)
+        
+        if (attackTime <= Time.time && mobs.Count > 0)
         {
-            if (attackTime <= Time.time)
-            {
-                GameObject bulletIntstance = Instantiate(bullet, transform);
-                bulletIntstance.GetComponent<Bullet>().damage = damage;
-                attackTime = Time.time + attackCooldown;
-            }
+            GameObject bulletIntstance = Instantiate(bullet, transform);
+            bulletIntstance.GetComponent<Bullet>().damage = damage;
+            attackTime = Time.time + attackCooldown;
         }
     }
     

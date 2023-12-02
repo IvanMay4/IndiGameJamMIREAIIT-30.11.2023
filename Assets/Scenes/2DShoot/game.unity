@@ -1251,6 +1251,21 @@ MonoBehaviour:
     spawner: 4
     randomSpawner: 0
     isSpawned: 0
+  - spawnTime: 2
+    mobType: 0
+    spawner: 2
+    randomSpawner: 1
+    isSpawned: 0
+  - spawnTime: 5
+    mobType: 0
+    spawner: 2
+    randomSpawner: 1
+    isSpawned: 0
+  - spawnTime: 5
+    mobType: 0
+    spawner: 2
+    randomSpawner: 1
+    isSpawned: 0
   - spawnTime: 5
     mobType: 0
     spawner: 2
