@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -7710808098930298718}
   - component: {fileID: 8341765481472424320}
   m_Layer: 7
-  m_Name: Mob_drag
+  m_Name: DefenceDrag
   m_TagString: DefenceDrag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
