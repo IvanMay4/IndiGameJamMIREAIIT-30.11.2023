@@ -7,12 +7,14 @@ public class DefenceContoller : MonoBehaviour
 {
     public List<GameObject> mobs;
     public GameObject bullet;
+    public ObjectContainer objectContainer;
 
     private float attackTime;
     public float attackCooldown;
     public int damage;
     public bool isAttacking;
     public int health;
+    
 
     private void Update()
     {
