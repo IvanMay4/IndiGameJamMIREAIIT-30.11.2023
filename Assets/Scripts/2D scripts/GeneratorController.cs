@@ -8,7 +8,7 @@ public class GeneratorController : Controller{
     int time;
 
     void Awake(){
-        health = 10;
+        health = 100;
         generatorPower = 50;
         generatorCooldown = 1 * 60;
         time = 0;

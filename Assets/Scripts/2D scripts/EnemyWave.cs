@@ -10,27 +10,37 @@ public class EnemyWave : MonoBehaviour{
     private int countWaves;
     private int currentWaves;
     private int currentEnemySpawn;
-    Enemy2D[][] enemiesWaves;
+    string[][] enemiesWaves;
     private int[][] cooldowns;
+    private int[][] lines;
     private int time;
     public Enemy2D[] enemies;
     [SerializeField] FirstEnemy2D firstEnemy2DPrefab;
     [SerializeField] SecondEnemy2D secondEnemy2DPrefab;
+    [SerializeField] ThirdEnemy2D thirdEnemy2DPrefab;
+    string firstEnemy2DName = "FirstEnemy2D";
+    string secondEnemy2DName = "SecondEnemy2D";
+    string thirdEnemy2DName = "ThirdEnemy2D";
 
     void Start(){
         countWaves = 4;
         currentWaves = 0;
         currentEnemySpawn = 0;
-        enemiesWaves = new Enemy2D[4][];
-        enemiesWaves[0] = new Enemy2D[]{new FirstEnemy2D(), new SecondEnemy2D()};
-        enemiesWaves[1] = new Enemy2D[]{new FirstEnemy2D(), new FirstEnemy2D(), new FirstEnemy2D(), new FirstEnemy2D()};
-        enemiesWaves[2] = new Enemy2D[]{new SecondEnemy2D(), new SecondEnemy2D(), new SecondEnemy2D()};
-        enemiesWaves[3] = new Enemy2D[]{new FirstEnemy2D(), new SecondEnemy2D(), new SecondEnemy2D(), new FirstEnemy2D()};
+        enemiesWaves = new string[4][];
+        enemiesWaves[0] = new string[]{firstEnemy2DName, secondEnemy2DName, thirdEnemy2DName, secondEnemy2DName, secondEnemy2DName, thirdEnemy2DName};
+        enemiesWaves[1] = new string[]{firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName};
+        enemiesWaves[2] = new string[]{secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName};
+        enemiesWaves[3] = new string[]{thirdEnemy2DName, thirdEnemy2DName};
         cooldowns = new int[4][];
-        cooldowns[0] = new int[]{2 * 60};
-        cooldowns[1] = new int[]{2 * 60, 1 * 60, 1 * 60};
-        cooldowns[2] = new int[]{1 * 60, 1 * 60};
-        cooldowns[3] = new int[]{2 * 60, 1 * 60, 1 * 60};
+        cooldowns[0] = new int[]{2 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60};
+        cooldowns[1] = new int[]{2 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60};
+        cooldowns[2] = new int[]{1 * 60, 1 * 60, 1 * 60, 1 * 60};
+        cooldowns[3] = new int[]{2 * 60};
+        lines = new int[4][];
+        lines[0] = new int[]{1, 2, 3, 3, 2, 1};
+        lines[1] = new int[]{5, 4, 3, 2, 1, 1};
+        lines[2] = new int[]{1, 3, 5, 4, 2};
+        lines[3] = new int[]{2, 4};
     }
 
     void FixedUpdate(){
@@ -39,36 +49,50 @@ public class EnemyWave : MonoBehaviour{
             currentWaves++;
             time = 0;
             enemies = new Enemy2D[enemiesWaves[currentWaves - 1].Length];
-            enemies[0] = Instantiate(GetEnemyPrefab(enemiesWaves[currentWaves - 1][0]), new Vector3(850, 300, 0), new Quaternion());
+            enemies[0] = Instantiate(GetEnemyPrefab(enemiesWaves[currentWaves - 1][0]), GetEnemyPosition(lines[currentWaves - 1][0]), new Quaternion());
+            enemies[0].transform.SetParent(gameObject.transform, false);
             currentEnemySpawn = 1;
         }
         if (currentEnemySpawn >= enemiesWaves[currentWaves - 1].Length){
             DeleteNullEnemies();
             return;
         }
-        if(time == cooldowns[countWaves - 1][currentEnemySpawn - 1]){
-            enemies[currentEnemySpawn] = Instantiate(GetEnemyPrefab(enemiesWaves[currentWaves - 1][currentEnemySpawn]), new Vector3(850, 300, 0), new Quaternion());
+        if(time == cooldowns[currentWaves - 1][currentEnemySpawn - 1]){
+            enemies[currentEnemySpawn] = Instantiate(GetEnemyPrefab(enemiesWaves[currentWaves - 1][currentEnemySpawn]), GetEnemyPosition(lines[currentWaves - 1][currentEnemySpawn]), new Quaternion());
+            enemies[currentEnemySpawn].transform.SetParent(gameObject.transform, false);
             currentEnemySpawn++;
             time = 0;
         }
     }
 
     private void DeleteNullEnemies(){
-        int i = 0;
-        while(i < enemies.Length) { 
+        for(int i = 0;i < enemies.Length;i++)
             if (enemies[i] == null){
-                for (int j = i; j < enemies.Length - 1; j++)
-                    enemies[j] = enemies[j + 1];
-                ArrayUtility.Remove(ref enemies, enemies[enemies.Length - 1]);
+                ArrayUtility.Remove(ref enemies, enemies[i]);
                 i--;
             }
-            i++;
-        }
     }
 
-    private Enemy2D GetEnemyPrefab(Enemy2D enemy){
-        if (enemy.GetType().Name == "FirstEnemy2D") return firstEnemy2DPrefab;
-        if (enemy.GetType().Name == "SecondEnemy2D") return secondEnemy2DPrefab;
+    public Enemy2D FindFirstNoNullEnemy(){
+        for (int i = 0; i < enemies.Length; i++)
+            if (enemies[i] != null)
+                return enemies[i];
         return null;
+    }
+
+    private Enemy2D GetEnemyPrefab(string enemy){
+        if (enemy == firstEnemy2DName) return firstEnemy2DPrefab;
+        if (enemy == secondEnemy2DName) return secondEnemy2DPrefab;
+        if (enemy == thirdEnemy2DName) return thirdEnemy2DPrefab;
+        return null;
+    }
+
+    private Vector3 GetEnemyPosition(int line){
+        if (line == 1) return new Vector3(903, 357, 0);
+        if (line == 2) return new Vector3(903, 165, 0);
+        if (line == 3) return new Vector3(903, -35, 0);
+        if (line == 4) return new Vector3(903, -212, 0);
+        if (line == 5) return new Vector3(903, -385, 0);
+        return new Vector3();
     }
 }
