@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1597634183001347083}
   - component: {fileID: 1983500405176658314}
   m_Layer: 8
-  m_Name: Mob_game
+  m_Name: DefenceGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

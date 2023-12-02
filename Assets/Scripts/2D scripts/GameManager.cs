@@ -29,11 +29,10 @@ public class GameManager : MonoBehaviour
         if (draggingObject != null && currentContainer != null)
         {
             if (draggingObject.CompareTag("DefenceDrag"))
-                GameManager.instance.generatorCoins -= generatorCostDefence;
+                instance.generatorCoins -= generatorCostDefence;
             else if (draggingObject.CompareTag("GeneratorDrag"))
-                GameManager.instance.generatorCoins -= generatorCostGenerator;
+                instance.generatorCoins -= generatorCostGenerator;
             GameObject objectGame = Instantiate(draggingObject.GetComponent<ObjectDragging>().card.object_game, currentContainer.transform);
-            objectGame.GetComponent<Controller>().mobs = currentContainer.GetComponent<ObjectContainer>().spawnPoint.mobs;
             currentContainer.GetComponent<ObjectContainer>().isFull = true;
             objectGame.GetComponent<Controller>().objectContainer = currentContainer.GetComponent<ObjectContainer>();
         }
