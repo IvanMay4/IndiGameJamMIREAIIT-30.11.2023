@@ -18,7 +18,7 @@ public class DefenceContoller : MonoBehaviour
 
     private void Update()
     {
-        if (mobs.Count > 0 && isAttacking == false && transform.position.x <= mobs[0].transform.position.x)
+        if (mobs.Count > 0 && isAttacking == false && objectContainer.transform.position.x <= mobs[0].transform.position.x)
         {
             isAttacking = true;
         }
@@ -39,6 +39,7 @@ public class DefenceContoller : MonoBehaviour
     {
         if (health - Damage <= 0)
         {
+            objectContainer.isFull = false;
             Destroy(this.gameObject);
         }
         else
