@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,10 +12,16 @@ public class Enemy2D : MonoBehaviour{
     public float damageCooldown;
     public int line;
     protected Vector3 move = new Vector3(0, 0, 0);
+    public Animator anim;
 
     protected void Awake(){
         currentHP = maxHP;
         damage = 2;
+    }
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
     }
 
     protected void FixedUpdate(){
@@ -36,6 +43,7 @@ public class Enemy2D : MonoBehaviour{
     public void OnTriggerEnter2D(Collider2D collision){
         if (collision.gameObject.layer == 8){
             StartCoroutine(Attack(collision));
+            anim.SetTrigger("enotIsAttacking");
             isStopped = true;
         }
     }
