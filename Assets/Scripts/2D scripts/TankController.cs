@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class TankController : Controller{
     private void Awake(){
-        health = 5000;
+        health = 4000;
     }
 }

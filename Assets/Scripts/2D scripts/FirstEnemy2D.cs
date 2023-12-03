@@ -7,7 +7,7 @@ public class FirstEnemy2D : Enemy2D
     private void Awake(){
         damage = 1;
         maxHP = 200;
-        speed = 0.35f;
+        speed = 0.7f;
         currentHP = maxHP;
         base.Awake();
     }

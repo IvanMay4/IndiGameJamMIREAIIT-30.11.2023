@@ -10,7 +10,7 @@ public class GeneratorController : Controller{
     private bool isFirst;
 
     void Awake(){
-        health = 500;
+        health = 200;
         generatorPower = 50;
         generatorCooldown = 1 * 1200;
         time = 0;
