@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour{
+public class MainMenuVlad : MonoBehaviour{
     [SerializeField] public Button buttonContinue;
     [SerializeField] public Button buttonDeleteProgress;
 
