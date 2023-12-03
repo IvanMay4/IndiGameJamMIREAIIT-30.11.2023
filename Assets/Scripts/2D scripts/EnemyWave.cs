@@ -93,7 +93,14 @@ public class EnemyWave : MonoBehaviour{
     private void DeleteNullEnemies(){
         for(int i = 0;i < enemies.Length;i++)
             if (enemies[i] == null){
-                ArrayUtility.Remove(ref enemies, enemies[i]);
+                Enemy2D[] tmp = new Enemy2D[enemies.Length - 1];
+                for (int j = 0; j < i; j++)
+                    tmp[j] = enemies[j];
+                for (int j = i; j < enemies.Length - 1; j++)
+                    tmp[j] = enemies[j + 1];
+                enemies = new Enemy2D[tmp.Length];
+                for (int j = 0; j < enemies.Length; j++)
+                    enemies[j] = tmp[j];
                 i--;
             }
     }
