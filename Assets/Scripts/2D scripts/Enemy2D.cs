@@ -56,6 +56,7 @@ public class Enemy2D : MonoBehaviour{
             StartCoroutine(Attack(collision));
         }
     }
+    
 
     public void ReceiveDamage(int damage){
         if (currentHP - damage <= 0)

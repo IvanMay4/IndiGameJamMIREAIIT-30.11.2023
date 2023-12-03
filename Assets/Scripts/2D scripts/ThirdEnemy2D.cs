@@ -9,4 +9,26 @@ public class ThirdEnemy2D : Enemy2D{
         speed = 1f;
         currentHP = maxHP;
     }
+    
+    public void OnTriggerEnter2D(Collider2D collision){
+        if (collision.gameObject.layer == 8){
+            StartCoroutine(Attack(collision));
+            isStopped = true;
+            if (isStopped)
+            {
+                StartCoroutine(AttackAnim(collision));
+            }
+        }
+    }
+    
+    public IEnumerator AttackAnim(Collider2D collision)
+    {
+        if (collision == null) isStopped = false;
+        else
+        {
+            yield return new WaitForSeconds(1);
+            anim.SetTrigger("vihIsAttacking");
+            StartCoroutine(AttackAnim(collision));
+        }
+    }
 }
