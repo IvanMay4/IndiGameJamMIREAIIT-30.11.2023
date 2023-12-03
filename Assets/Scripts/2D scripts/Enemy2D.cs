@@ -22,7 +22,10 @@ public class Enemy2D : MonoBehaviour{
         Move();
         transform.position += move;
         if (transform.position.x <= 0)
+        {
+            GameManager.instance.background.PlayOneShot(GameManager.instance.victorySound,0.1f);
             Settings.OpenGameOver();
+        }
     }
 
     protected void Move(){
@@ -42,6 +45,7 @@ public class Enemy2D : MonoBehaviour{
         else{
             collision.gameObject.GetComponent<Controller>().ReceiveDamage(damage);
             yield return new WaitForSeconds(damageCooldown);
+            GameManager.instance.background.PlayOneShot(GameManager.instance.damageTrash, 0.1f);
             StartCoroutine(Attack(collision));
         }
     }

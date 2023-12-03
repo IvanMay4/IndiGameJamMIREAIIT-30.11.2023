@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -169,7 +169,11 @@ MonoBehaviour:
   paperDamage: {fileID: 8300000, guid: 256ccf626f314f248b109c32f25cba2d, type: 3}
   paperBullet: {fileID: 8300000, guid: cc75e7f3bd5bb8442b03918d4f4961a8, type: 3}
   raycoon: {fileID: 8300000, guid: 6d8cdef28626af843bfaccbb5ba73924, type: 3}
-  damageTrash: {fileID: 8300000, guid: ba4ada05c92236042a1cf36fb1ac7fc1, type: 3}
+  damageTrash: {fileID: 8300000, guid: 7acb01b4b02b47841907ca13b875beb4, type: 3}
+  victorySound: {fileID: 8300000, guid: 982283ca026a6b6498973e7b44ad2bba, type: 3}
+  defeatSound: {fileID: 8300000, guid: ccc7ef44a5dd6d54dbca9a7d8660a75f, type: 3}
+  kabanSound: {fileID: 8300000, guid: a2f96b0cc0adb3d48a68a828c8fee4be, type: 3}
+  vihuholSound: {fileID: 8300000, guid: 7fc93c000d7c70c4c964d1a560a82f9b, type: 3}
   generatorCoins: 1000
 --- !u!4 &15018142
 Transform:
@@ -1563,6 +1567,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1571960101250678218, guid: 4f2834038d7f6d646a5577260c5b42e3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9011350782705f7489ec0a3e00147da5, type: 3}
     - target: {fileID: 1775739148134204312, guid: 4f2834038d7f6d646a5577260c5b42e3, type: 3}
       propertyPath: m_Name
       value: CardTank
@@ -3972,6 +3980,7 @@ RectTransform:
   - {fileID: 340328215}
   - {fileID: 1887720456}
   - {fileID: 1384919154}
+  - {fileID: 1804139354}
   m_Father: {fileID: 1269230191}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4636,6 +4645,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1571960101250678218, guid: 4f2834038d7f6d646a5577260c5b42e3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d773312b2fdb0ab47acb1f0a22d2c2fc, type: 3}
     - target: {fileID: 1775739148134204312, guid: 4f2834038d7f6d646a5577260c5b42e3, type: 3}
       propertyPath: m_Name
       value: CardGenerator
@@ -5237,7 +5250,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -736, y: -357}
+  m_AnchoredPosition: {x: -618, y: -366}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1297222895
@@ -5260,7 +5273,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u042D\u043D\u0435\u0440\u0433\u0438\u044F: 100"
+  m_text: 100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5287,7 +5300,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.8
+  m_fontSize: 44.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7626,6 +7639,81 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0534013c64c56149b1c1ec54470ee39, type: 3}
+--- !u!1 &1804139353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1804139354}
+  - component: {fileID: 1804139356}
+  - component: {fileID: 1804139355}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1804139354
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804139353}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.17, y: 0.17, z: 0.17}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1127751806}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -464, y: -191}
+  m_SizeDelta: {x: 312, y: 307}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1804139355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804139353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: ca94289d1bd394e4590767b7381cc6f6, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1804139356
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804139353}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1809629269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8941,6 +9029,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1571960101250678218, guid: 4f2834038d7f6d646a5577260c5b42e3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f5d0dbe91d40155458c6c852d31b842d, type: 3}
     - target: {fileID: 1775739148134204312, guid: 4f2834038d7f6d646a5577260c5b42e3, type: 3}
       propertyPath: m_Name
       value: CardShooter

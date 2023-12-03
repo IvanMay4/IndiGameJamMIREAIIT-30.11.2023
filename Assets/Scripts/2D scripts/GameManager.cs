@@ -18,6 +18,11 @@ public class GameManager : MonoBehaviour{
     public AudioClip paperBullet;
     public AudioClip raycoon;
     public AudioClip damageTrash;
+    public AudioClip victorySound;
+    public AudioClip defeatSound;
+    public AudioClip kabanSound;
+    public AudioClip vihuholSound;
+    
 
     public static GameManager instance;
     public int generatorCoins;
@@ -32,7 +37,7 @@ public class GameManager : MonoBehaviour{
     }
 
     private void Update(){
-        textGeneratorCoins.text = $"Энергия:{generatorCoins}";
+        textGeneratorCoins.text = $"{generatorCoins}";
     }
 
     public void PlaceObject(){

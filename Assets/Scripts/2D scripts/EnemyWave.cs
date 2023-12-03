@@ -68,6 +68,14 @@ public class EnemyWave : MonoBehaviour{
             {
                 GameManager.instance.background.PlayOneShot(GameManager.instance.raycoon, 0.1f);
             }
+            if (enemiesWaves[currentWaves - 1][currentEnemySpawn] == secondEnemy2DName)
+            {
+                GameManager.instance.background.PlayOneShot(GameManager.instance.kabanSound, 0.1f);
+            }
+            if (enemiesWaves[currentWaves - 1][currentEnemySpawn] == thirdEnemy2DName)
+            {
+                GameManager.instance.background.PlayOneShot(GameManager.instance.vihuholSound, 0.1f);
+            }
             enemies[currentEnemySpawn].transform.SetParent(gameObject.transform, false);
             enemies[currentEnemySpawn].line = lines[currentWaves - 1][currentEnemySpawn];
             currentEnemySpawn++;
