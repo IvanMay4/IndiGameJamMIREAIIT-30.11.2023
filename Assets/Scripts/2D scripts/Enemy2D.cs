@@ -30,7 +30,7 @@ public class Enemy2D : MonoBehaviour{
         transform.position += move;
         if (transform.position.x <= 0)
         {
-            GameManager.instance.background.PlayOneShot(GameManager.instance.victorySound,0.1f);
+            GameManager.instance.background.PlayOneShot(GameManager.instance.defeatSound,0.1f);
             Settings.OpenGameOver();
         }
     }

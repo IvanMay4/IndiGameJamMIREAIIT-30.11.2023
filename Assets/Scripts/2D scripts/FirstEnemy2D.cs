@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,5 +11,13 @@ public class FirstEnemy2D : Enemy2D
         speed = 0.7f;
         currentHP = maxHP;
         base.Awake();
+    }
+
+    private void Update()
+    {
+        if (isStopped)
+        {
+            anim.SetTrigger("enotIsAttacking");
+        }
     }
 }
