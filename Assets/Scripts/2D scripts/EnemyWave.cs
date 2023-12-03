@@ -36,20 +36,20 @@ public class EnemyWave : MonoBehaviour{
     private void GameLevel1Scene(){
         countWaves = 4;
         enemiesWaves = new string[countWaves][];
-        enemiesWaves[0] = new string[] { firstEnemy2DName, secondEnemy2DName, thirdEnemy2DName, secondEnemy2DName, secondEnemy2DName, thirdEnemy2DName };
-        enemiesWaves[1] = new string[] { firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName };
-        enemiesWaves[2] = new string[] { secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName };
-        enemiesWaves[3] = new string[] { thirdEnemy2DName, thirdEnemy2DName };
+        enemiesWaves[0] = new string[]{firstEnemy2DName, secondEnemy2DName, thirdEnemy2DName, secondEnemy2DName, secondEnemy2DName, thirdEnemy2DName};
+        enemiesWaves[1] = new string[]{firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName};
+        enemiesWaves[2] = new string[]{secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName};
+        enemiesWaves[3] = new string[]{thirdEnemy2DName, thirdEnemy2DName};
         cooldowns = new int[countWaves][];
-        cooldowns[0] = new int[] { 10 * 60, 20 * 60, 20 * 60, 20 * 60, 1 * 60, 1 * 60 };
-        cooldowns[1] = new int[] { 3 * 60, 2 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60 };
-        cooldowns[2] = new int[] { 3 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60 };
-        cooldowns[3] = new int[] { 3 * 60, 2 * 60 };
+        cooldowns[0] = new int[]{10 * 60, 20 * 60, 20 * 60, 20 * 60, 1 * 60, 1 * 60};
+        cooldowns[1] = new int[]{3 * 60, 2 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60};
+        cooldowns[2] = new int[]{3 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60};
+        cooldowns[3] = new int[]{3 * 60, 2 * 60};
         lines = new int[countWaves][];
-        lines[0] = new int[] { 1, 2, 3, 3, 2, 1 };
-        lines[1] = new int[] { 5, 4, 3, 2, 1, 1 };
-        lines[2] = new int[] { 1, 3, 5, 4, 2 };
-        lines[3] = new int[] { 2, 4 };
+        lines[0] = new int[]{1, 2, 3, 3, 2, 1};
+        lines[1] = new int[]{5, 4, 3, 2, 1, 1};
+        lines[2] = new int[]{1, 3, 5, 4, 2};
+        lines[3] = new int[]{2, 4};
     }
 
     private void GameLevel2Scene(){
@@ -57,7 +57,34 @@ public class EnemyWave : MonoBehaviour{
     }
 
     private void GameLevel3Scene(){
-
+        countWaves = 8;
+        enemiesWaves = new string[countWaves][];
+        enemiesWaves[0] = new string[]{firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName};
+        enemiesWaves[1] = new string[]{secondEnemy2DName, thirdEnemy2DName, secondEnemy2DName, thirdEnemy2DName, secondEnemy2DName, secondEnemy2DName, thirdEnemy2DName, thirdEnemy2DName};
+        enemiesWaves[2] = new string[]{firstEnemy2DName, secondEnemy2DName, thirdEnemy2DName};
+        enemiesWaves[3] = new string[]{firstEnemy2DName, firstEnemy2DName, secondEnemy2DName, secondEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, firstEnemy2DName, secondEnemy2DName, firstEnemy2DName, thirdEnemy2DName};
+        enemiesWaves[4] = new string[]{firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName};
+        enemiesWaves[5] = new string[]{secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName};
+        enemiesWaves[6] = new string[]{thirdEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, thirdEnemy2DName};
+        enemiesWaves[7] = new string[]{firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, thirdEnemy2DName, thirdEnemy2DName, thirdEnemy2DName};
+        cooldowns = new int[countWaves][];
+        cooldowns[0] = new int[]{10 * 60, 20 * 60, 1 * 60, 20 * 60, 1 * 60, 1 * 60, 10 * 60, 1 * 60, 1 * 60, 1 * 60};
+        cooldowns[1] = new int[]{8 * 60, 2 * 60, 8 * 60, 1 * 60, 8 * 60, 1 * 60, 1 * 60, 1 * 60};
+        cooldowns[2] = new int[]{5 * 60, 1 * 60, 1 * 60};
+        cooldowns[3] = new int[]{5 * 60, 1 * 60, 2 * 60, 5 * 60, 2 * 60, 1 * 60, 5 * 60, 1 * 60, 2 * 60, 1 * 60};
+        cooldowns[4] = new int[]{1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60};
+        cooldowns[5] = new int[]{1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60};
+        cooldowns[6] = new int[]{1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60};
+        cooldowns[7] = new int[]{1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60};
+        lines = new int[countWaves][];
+        lines[0] = new int[]{1, 4, 5, 2, 3, 1, 1, 2, 4, 5};
+        lines[1] = new int[]{3, 1, 5, 4, 1, 1, 2, 2};
+        lines[2] = new int[]{1, 1, 1};
+        lines[3] = new int[]{1, 1, 2, 2, 3, 3, 4, 4, 5, 5};
+        lines[4] = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5};
+        lines[5] = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5};
+        lines[6] = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5};
+        lines[7] = new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5};
     }
 
     void FixedUpdate(){
