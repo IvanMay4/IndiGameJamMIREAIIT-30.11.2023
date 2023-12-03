@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class EnemyWave : MonoBehaviour{
     [SerializeField] FirstEnemy2D firstEnemy2DPrefab;
     [SerializeField] SecondEnemy2D secondEnemy2DPrefab;
     [SerializeField] ThirdEnemy2D thirdEnemy2DPrefab;
+    [SerializeField] TMP_Text textWaves;
     string firstEnemy2DName = "FirstEnemy2D";
     string secondEnemy2DName = "SecondEnemy2D";
     string thirdEnemy2DName = "ThirdEnemy2D";
@@ -32,10 +34,10 @@ public class EnemyWave : MonoBehaviour{
         enemiesWaves[2] = new string[]{secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName};
         enemiesWaves[3] = new string[]{thirdEnemy2DName, thirdEnemy2DName};
         cooldowns = new int[countWaves][];
-        cooldowns[0] = new int[]{2 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60};
-        cooldowns[1] = new int[]{2 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60};
-        cooldowns[2] = new int[]{1 * 60, 1 * 60, 1 * 60, 1 * 60};
-        cooldowns[3] = new int[]{2 * 60};
+        cooldowns[0] = new int[]{10 * 60, 2 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60};
+        cooldowns[1] = new int[]{3 * 60, 2 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60};
+        cooldowns[2] = new int[]{3 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60};
+        cooldowns[3] = new int[]{3 * 60, 2 * 60};
         lines = new int[countWaves][];
         lines[0] = new int[]{1, 2, 3, 3, 2, 1};
         lines[1] = new int[]{5, 4, 3, 2, 1, 1};
@@ -51,37 +53,30 @@ public class EnemyWave : MonoBehaviour{
             currentWaves++;
             time = 0;
             enemies = new Enemy2D[enemiesWaves[currentWaves - 1].Length];
-            enemies[0] = Instantiate(GetEnemyPrefab(enemiesWaves[currentWaves - 1][0]), GetEnemyPosition(lines[currentWaves - 1][0]), new Quaternion());
-            if (enemiesWaves[currentWaves - 1][0] == firstEnemy2DName)
-            {
-                GameManager.instance.background.PlayOneShot(GameManager.instance.raycoon, 0.1f);
-            }
-            enemies[0].transform.SetParent(gameObject.transform, false);
-            enemies[0].line = lines[currentWaves - 1][0];
-            currentEnemySpawn = 1;
+            currentEnemySpawn = 0;
+            if (currentWaves < countWaves) textWaves.text = "Next Wave";
+            else textWaves.text = "Final Wave";
         }
         if (currentEnemySpawn >= enemiesWaves[currentWaves - 1].Length){
             DeleteNullEnemies();
             return;
         }
-        if(time == cooldowns[currentWaves - 1][currentEnemySpawn - 1]){
+        if(time == cooldowns[currentWaves - 1][currentEnemySpawn]){
             enemies[currentEnemySpawn] = Instantiate(GetEnemyPrefab(enemiesWaves[currentWaves - 1][currentEnemySpawn]), GetEnemyPosition(lines[currentWaves - 1][currentEnemySpawn]), new Quaternion());
-            if (enemiesWaves[currentWaves - 1][currentEnemySpawn] == firstEnemy2DName)
-            {
+            if (enemiesWaves[currentWaves - 1][currentEnemySpawn] == firstEnemy2DName){
                 GameManager.instance.background.PlayOneShot(GameManager.instance.raycoon, 0.1f);
             }
-            if (enemiesWaves[currentWaves - 1][currentEnemySpawn] == secondEnemy2DName)
-            {
+            if (enemiesWaves[currentWaves - 1][currentEnemySpawn] == secondEnemy2DName){
                 GameManager.instance.background.PlayOneShot(GameManager.instance.kabanSound, 0.1f);
             }
-            if (enemiesWaves[currentWaves - 1][currentEnemySpawn] == thirdEnemy2DName)
-            {
+            if (enemiesWaves[currentWaves - 1][currentEnemySpawn] == thirdEnemy2DName){
                 GameManager.instance.background.PlayOneShot(GameManager.instance.vihuholSound, 0.1f);
             }
             enemies[currentEnemySpawn].transform.SetParent(gameObject.transform, false);
             enemies[currentEnemySpawn].line = lines[currentWaves - 1][currentEnemySpawn];
             currentEnemySpawn++;
             time = 0;
+            textWaves.text = "";
         }
     }
 
