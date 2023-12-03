@@ -47,7 +47,16 @@ public class Enemy2D : MonoBehaviour{
     }
 
     public void ReceiveDamage(int damage){
-        if (currentHP - damage <= 0) Destroy(gameObject);
-        else currentHP -= damage;
+        if (currentHP - damage <= 0)
+        {
+            Destroy(gameObject);
+            GameManager.instance.background.PlayOneShot(GameManager.instance.paperDamage, 0.2f);
+        }
+        
+        else
+        {
+            currentHP -= damage;
+            GameManager.instance.background.PlayOneShot(GameManager.instance.paperDamage, 0.2f);
+        }
     }
 }

@@ -26,6 +26,7 @@ public class DefenceController : Controller{
             isAttacking = false;
         if (attackTime <= Time.time && isAttacking){
             GameObject bulletIntstance = Instantiate(bullet, transform);
+            GameManager.instance.background.PlayOneShot(GameManager.instance.paperBullet, 0.1f);
             bulletIntstance.GetComponent<Bullet>().damage = damage;
             attackTime = Time.time + attackCooldown;
         }

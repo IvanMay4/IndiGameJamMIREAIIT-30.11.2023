@@ -11,7 +11,12 @@ public class Controller : MonoBehaviour{
         if (health - damage <= 0) {
             objectContainer.isFull = false;
             Destroy(gameObject);
+            GameManager.instance.background.PlayOneShot(GameManager.instance.damageTrash, 0.1f);
         }
-        else health -= damage;
+        else
+        {
+            health -= damage;
+            GameManager.instance.background.PlayOneShot(GameManager.instance.damageTrash, 0.1f);
+        }
     }
 }

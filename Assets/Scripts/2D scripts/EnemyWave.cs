@@ -50,6 +50,10 @@ public class EnemyWave : MonoBehaviour{
             time = 0;
             enemies = new Enemy2D[enemiesWaves[currentWaves - 1].Length];
             enemies[0] = Instantiate(GetEnemyPrefab(enemiesWaves[currentWaves - 1][0]), GetEnemyPosition(lines[currentWaves - 1][0]), new Quaternion());
+            if (enemiesWaves[currentWaves - 1][0] == firstEnemy2DName)
+            {
+                GameManager.instance.background.PlayOneShot(GameManager.instance.raycoon, 0.1f);
+            }
             enemies[0].transform.SetParent(gameObject.transform, false);
             enemies[0].line = lines[currentWaves - 1][0];
             currentEnemySpawn = 1;
@@ -60,6 +64,10 @@ public class EnemyWave : MonoBehaviour{
         }
         if(time == cooldowns[currentWaves - 1][currentEnemySpawn - 1]){
             enemies[currentEnemySpawn] = Instantiate(GetEnemyPrefab(enemiesWaves[currentWaves - 1][currentEnemySpawn]), GetEnemyPosition(lines[currentWaves - 1][currentEnemySpawn]), new Quaternion());
+            if (enemiesWaves[currentWaves - 1][currentEnemySpawn] == firstEnemy2DName)
+            {
+                GameManager.instance.background.PlayOneShot(GameManager.instance.raycoon, 0.1f);
+            }
             enemies[currentEnemySpawn].transform.SetParent(gameObject.transform, false);
             enemies[currentEnemySpawn].line = lines[currentWaves - 1][currentEnemySpawn];
             currentEnemySpawn++;
