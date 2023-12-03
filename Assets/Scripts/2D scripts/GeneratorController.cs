@@ -17,6 +17,7 @@ public class GeneratorController : Controller{
     void FixedUpdate(){
         time++;
         if(time >= generatorCooldown){
+            anim.SetTrigger("isGenerating");
             GameManager.instance.generatorCoins += generatorPower;
             time = 0;
         }

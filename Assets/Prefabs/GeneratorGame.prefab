@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7902465752246810502}
   - component: {fileID: 1597634183001347083}
   - component: {fileID: 6612935225412757459}
-  - component: {fileID: 6618157501918479822}
+  - component: {fileID: 2460345863247094681}
   m_Layer: 8
   m_Name: GeneratorGame
   m_TagString: Untagged
@@ -109,7 +109,7 @@ MonoBehaviour:
   objectContainer: {fileID: 0}
   health: 0
   line: 0
---- !u!95 &6618157501918479822
+--- !u!95 &2460345863247094681
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

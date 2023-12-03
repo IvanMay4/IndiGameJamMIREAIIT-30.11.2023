@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6914189186723192401}
   - component: {fileID: -7710808098930298718}
   - component: {fileID: 8341765481472424320}
-  - component: {fileID: 5915785652308141348}
   m_Layer: 7
   m_Name: DefenceDrag
   m_TagString: DefenceDrag
@@ -133,24 +132,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 0}
---- !u!95 &5915785652308141348
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 622180749069844038}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e97b159a3d835f644acbf14c908f500d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
