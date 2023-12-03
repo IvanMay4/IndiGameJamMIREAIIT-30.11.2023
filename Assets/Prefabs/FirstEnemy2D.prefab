@@ -51,6 +51,7 @@ MonoBehaviour:
   damage: 0
   isStopped: 0
   damageCooldown: 0
+  line: 0
 --- !u!61 &7099325244202237193
 BoxCollider2D:
   m_ObjectHideFlags: 0
