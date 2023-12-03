@@ -5,6 +5,7 @@ using UnityEngine;
 public class Controller : MonoBehaviour{
     public ObjectContainer objectContainer;
     public int health;
+    public int line;
 
     public void ReceiveDamage(int damage){
         if (health - damage <= 0) {

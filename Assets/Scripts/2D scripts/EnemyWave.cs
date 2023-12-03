@@ -51,6 +51,7 @@ public class EnemyWave : MonoBehaviour{
             enemies = new Enemy2D[enemiesWaves[currentWaves - 1].Length];
             enemies[0] = Instantiate(GetEnemyPrefab(enemiesWaves[currentWaves - 1][0]), GetEnemyPosition(lines[currentWaves - 1][0]), new Quaternion());
             enemies[0].transform.SetParent(gameObject.transform, false);
+            enemies[0].line = lines[currentWaves - 1][0];
             currentEnemySpawn = 1;
         }
         if (currentEnemySpawn >= enemiesWaves[currentWaves - 1].Length){
@@ -60,9 +61,19 @@ public class EnemyWave : MonoBehaviour{
         if(time == cooldowns[currentWaves - 1][currentEnemySpawn - 1]){
             enemies[currentEnemySpawn] = Instantiate(GetEnemyPrefab(enemiesWaves[currentWaves - 1][currentEnemySpawn]), GetEnemyPosition(lines[currentWaves - 1][currentEnemySpawn]), new Quaternion());
             enemies[currentEnemySpawn].transform.SetParent(gameObject.transform, false);
+            enemies[currentEnemySpawn].line = lines[currentWaves - 1][currentEnemySpawn];
             currentEnemySpawn++;
             time = 0;
         }
+    }
+
+    public int GetCountEnemiesInLine(int line){
+        int count = 0;
+        foreach (Enemy2D enemy in enemies)
+            if(enemy != null)
+                if (enemy.line == line)
+                    count++;
+        return count;
     }
 
     private void DeleteNullEnemies(){

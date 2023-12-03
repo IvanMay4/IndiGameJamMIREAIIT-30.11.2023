@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
             GameObject objectGame = Instantiate(draggingObject.GetComponent<ObjectDragging>().card.object_game, currentContainer.transform);
             currentContainer.GetComponent<ObjectContainer>().isFull = true;
             objectGame.GetComponent<Controller>().objectContainer = currentContainer.GetComponent<ObjectContainer>();
+            objectGame.GetComponent<Controller>().line = currentContainer.GetComponent<ObjectContainer>().line;
         }
     }
 }
