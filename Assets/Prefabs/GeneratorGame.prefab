@@ -107,8 +107,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectContainer: {fileID: 0}
-  health: 0
+  health: 10
   line: 0
+  anim: {fileID: 0}
 --- !u!95 &2460345863247094681
 Animator:
   serializedVersion: 5

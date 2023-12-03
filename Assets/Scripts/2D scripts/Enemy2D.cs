@@ -43,12 +43,11 @@ public class Enemy2D : MonoBehaviour{
     public void OnTriggerEnter2D(Collider2D collision){
         if (collision.gameObject.layer == 8){
             StartCoroutine(Attack(collision));
-            anim.SetTrigger("enotIsAttacking");
             isStopped = true;
         }
     }
 
-    IEnumerator Attack(Collider2D collision){
+    public IEnumerator Attack(Collider2D collision){
         if (collision == null) isStopped = false;
         else{
             collision.gameObject.GetComponent<Controller>().ReceiveDamage(damage);

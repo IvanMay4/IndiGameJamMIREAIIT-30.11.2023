@@ -107,13 +107,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectContainer: {fileID: 0}
-  health: 5
+  health: 200
   line: 0
   anim: {fileID: 0}
   bullet: {fileID: 579903666347183086, guid: c18dcd9ccb469304e9350e4b5abd9813, type: 3}
-  attackCooldown: 2
+  attackCooldown: 1.5
   damage: 20
   isAttacking: 0
+  animdef: {fileID: 0}
 --- !u!95 &4579427073773165187
 Animator:
   serializedVersion: 5
