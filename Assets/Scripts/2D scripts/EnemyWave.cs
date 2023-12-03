@@ -106,9 +106,12 @@ public class EnemyWave : MonoBehaviour{
         lines[7] = new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5};
     }
 
-    void FixedUpdate(){
-        if (currentWaves == countWaves && enemies.Length == 0)
-            Settings.OpenWin();
+    void FixedUpdate()
+    {
+        if (currentWaves == countWaves && enemies.Length == 0 && SceneManager.GetActiveScene().name == "GameLevel1")
+            SceneManager.LoadScene("Level 2");
+        else if(currentWaves == countWaves && enemies.Length == 0 && SceneManager.GetActiveScene().name == "GameLevel2")
+            SceneManager.LoadScene("Win");
         time++;
         if(enemies.Length == 0 && currentWaves < countWaves){
             currentWaves++;

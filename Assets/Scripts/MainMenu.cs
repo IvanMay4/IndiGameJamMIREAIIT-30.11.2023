@@ -7,22 +7,27 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("GameLevel2");
+        SceneManager.LoadScene("Level 1");
     }
 
     public void Settings()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Settings");
     }
 
     public void BackButton()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame() 
     {
         Debug.Log("QUIT!");
         Application.Quit();
+    }
+    
+    public void Level1()
+    {
+        SceneManager.LoadScene("GameLevel1");
     }
 }
