@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour{
     public TMP_Text textGeneratorCoins;
     public int generatorCostDefence = 100;
     public int generatorCostGenerator = 50;
+    public int generatorCostTank = 100;
     public AudioSource background;
     public AudioClip placeDefence;
     public AudioClip paperDamage;
@@ -42,6 +43,10 @@ public class GameManager : MonoBehaviour{
             }
             else if (draggingObject.CompareTag("GeneratorDrag")){
                 instance.generatorCoins -= generatorCostGenerator;
+                draggingObject.GetComponent<ObjectDragging>().card.CoolwownActivate();
+            }
+            else if (draggingObject.CompareTag("TankDrag")){
+                instance.generatorCoins -= generatorCostTank;
                 draggingObject.GetComponent<ObjectDragging>().card.CoolwownActivate();
             }
             GameObject objectGame = Instantiate(draggingObject.GetComponent<ObjectDragging>().card.object_game, currentContainer.transform);

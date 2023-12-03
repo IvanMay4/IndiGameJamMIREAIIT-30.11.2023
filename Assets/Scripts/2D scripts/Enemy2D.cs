@@ -21,8 +21,8 @@ public class Enemy2D : MonoBehaviour{
         move = new Vector3(0, 0, 0);
         Move();
         transform.position += move;
-        if (transform.position.x <= -333)
-            Destroy(gameObject);
+        if (transform.position.x <= 0)
+            Settings.OpenGameOver();
     }
 
     protected void Move(){

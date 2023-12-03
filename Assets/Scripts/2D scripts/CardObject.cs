@@ -48,6 +48,9 @@ public class CardObject : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoi
         if (object_drag.CompareTag("GeneratorDrag"))
             if (gameManager.generatorCoins < gameManager.generatorCostGenerator || gameManager.generatorCoins - gameManager.generatorCostGenerator < 0 || IsCooldown())
                 return;
+        if (object_drag.CompareTag("TankDrag"))
+            if (gameManager.generatorCoins < gameManager.generatorCostTank || gameManager.generatorCoins - gameManager.generatorCostTank < 0 || IsCooldown())
+                return;
 
         objectDragInstance = Instantiate(object_drag, canvas.transform);
         objectDragInstance.transform.position = Input.mousePosition;
