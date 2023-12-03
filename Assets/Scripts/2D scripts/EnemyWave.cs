@@ -111,6 +111,8 @@ public class EnemyWave : MonoBehaviour{
         if (currentWaves == countWaves && enemies.Length == 0 && SceneManager.GetActiveScene().name == "GameLevel1")
             SceneManager.LoadScene("Level 2");
         else if(currentWaves == countWaves && enemies.Length == 0 && SceneManager.GetActiveScene().name == "GameLevel2")
+            SceneManager.LoadScene("Level 3");
+        else if(currentWaves == countWaves && enemies.Length == 0 && SceneManager.GetActiveScene().name == "GameLevel3")
             SceneManager.LoadScene("Win");
         time++;
         if(enemies.Length == 0 && currentWaves < countWaves){
