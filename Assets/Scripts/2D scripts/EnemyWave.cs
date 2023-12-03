@@ -26,17 +26,17 @@ public class EnemyWave : MonoBehaviour{
         countWaves = 4;
         currentWaves = 0;
         currentEnemySpawn = 0;
-        enemiesWaves = new string[4][];
+        enemiesWaves = new string[countWaves][];
         enemiesWaves[0] = new string[]{firstEnemy2DName, secondEnemy2DName, thirdEnemy2DName, secondEnemy2DName, secondEnemy2DName, thirdEnemy2DName};
         enemiesWaves[1] = new string[]{firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName, firstEnemy2DName};
         enemiesWaves[2] = new string[]{secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName};
         enemiesWaves[3] = new string[]{thirdEnemy2DName, thirdEnemy2DName};
-        cooldowns = new int[4][];
+        cooldowns = new int[countWaves][];
         cooldowns[0] = new int[]{2 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60};
         cooldowns[1] = new int[]{2 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60};
         cooldowns[2] = new int[]{1 * 60, 1 * 60, 1 * 60, 1 * 60};
         cooldowns[3] = new int[]{2 * 60};
-        lines = new int[4][];
+        lines = new int[countWaves][];
         lines[0] = new int[]{1, 2, 3, 3, 2, 1};
         lines[1] = new int[]{5, 4, 3, 2, 1, 1};
         lines[2] = new int[]{1, 3, 5, 4, 2};
@@ -44,6 +44,8 @@ public class EnemyWave : MonoBehaviour{
     }
 
     void FixedUpdate(){
+        if (currentWaves == countWaves && enemies.Length == 0)
+            Settings.OpenWin();
         time++;
         if(enemies.Length == 0 && currentWaves < countWaves){
             currentWaves++;

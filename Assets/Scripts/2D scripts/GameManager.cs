@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour{
     public TMP_Text textGeneratorCoins;
     public int generatorCostDefence = 100;
     public int generatorCostGenerator = 50;
-    public int generatorCostTank = 100;
+    public int generatorCostTank = 75;
     public AudioSource background;
     public AudioClip placeDefence;
     public AudioClip paperDamage;
