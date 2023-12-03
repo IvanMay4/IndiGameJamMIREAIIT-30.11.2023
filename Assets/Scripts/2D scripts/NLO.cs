@@ -7,8 +7,8 @@ public class NLO : MonoBehaviour{
 
     private void Update(){
         if (!isRun) return;
-        transform.position += new Vector3(1, 0, 0);
-        if (transform.position.x >= 900) Destroy(gameObject);
+        transform.position += new Vector3(3, 0, 0);
+        if (transform.position.x >= 2700) Destroy(gameObject);
     }
     public void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.layer == 9){
