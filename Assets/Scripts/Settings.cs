@@ -18,7 +18,7 @@ public static class Settings{
     public static string filenameSaveGame = "Game.save";
     public static string filenameSaveSettings = "Settings.save";
 
-    public static void OpenMainMenu() => SceneManager.LoadScene("Main");
+    public static void OpenMainMenu() => SceneManager.LoadScene("MainMenu");
 
     public static void OpenSettings() => SceneManager.LoadScene("Settings");
 
