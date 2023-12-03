@@ -34,7 +34,7 @@ public class EnemyWave : MonoBehaviour{
         enemiesWaves[2] = new string[]{secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName, secondEnemy2DName};
         enemiesWaves[3] = new string[]{thirdEnemy2DName, thirdEnemy2DName};
         cooldowns = new int[countWaves][];
-        cooldowns[0] = new int[]{10 * 60, 2 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60};
+        cooldowns[0] = new int[]{10 * 60, 20 * 60, 20 * 60, 20 * 60, 1 * 60, 1 * 60};
         cooldowns[1] = new int[]{3 * 60, 2 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60};
         cooldowns[2] = new int[]{3 * 60, 1 * 60, 1 * 60, 1 * 60, 1 * 60};
         cooldowns[3] = new int[]{3 * 60, 2 * 60};

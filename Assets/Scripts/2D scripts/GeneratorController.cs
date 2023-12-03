@@ -11,7 +11,7 @@ public class GeneratorController : Controller{
 
     void Awake(){
         health = 500;
-        generatorPower = 25;
+        generatorPower = 50;
         generatorCooldown = 1 * 1200;
         time = 0;
         firstgeneratorCooldown = 1 * 420;
