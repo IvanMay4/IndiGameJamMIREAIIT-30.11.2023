@@ -157,6 +157,12 @@ MonoBehaviour:
   textGeneratorCoins: {fileID: 1297222895}
   generatorCostDefence: 100
   generatorCostGenerator: 50
+  background: {fileID: 0}
+  placeDefence: {fileID: 0}
+  paperDamage: {fileID: 0}
+  paperBullet: {fileID: 0}
+  raycoon: {fileID: 0}
+  damageTrash: {fileID: 0}
   generatorCoins: 1000
 --- !u!4 &15018142
 Transform:
@@ -1938,6 +1944,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0534013c64c56149b1c1ec54470ee39, type: 3}
+--- !u!114 &683413412 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4193549446819479139, guid: 4f2834038d7f6d646a5577260c5b42e3, type: 3}
+  m_PrefabInstance: {fileID: 1213781204}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &686403780 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4082194493304825267, guid: c0534013c64c56149b1c1ec54470ee39, type: 3}
@@ -2158,6 +2175,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0534013c64c56149b1c1ec54470ee39, type: 3}
+--- !u!114 &908167094 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4193549446819479139, guid: 4f2834038d7f6d646a5577260c5b42e3, type: 3}
+  m_PrefabInstance: {fileID: 7617342188249162127}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &916320250
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3158,6 +3186,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1269230190}
     - target: {fileID: 5605047625346836364, guid: 4f2834038d7f6d646a5577260c5b42e3, type: 3}
+      propertyPath: cooldown
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 5605047625346836364, guid: 4f2834038d7f6d646a5577260c5b42e3, type: 3}
       propertyPath: object_drag
       value: 
       objectReference: {fileID: 622180749069844038, guid: 1b6794c2d11dc3a4caee6e8c13b5c4bb, type: 3}
@@ -3165,6 +3197,10 @@ PrefabInstance:
       propertyPath: object_game
       value: 
       objectReference: {fileID: 622180749069844038, guid: a000e49c4c85d6d47acd9b99bd901ece, type: 3}
+    - target: {fileID: 5605047625346836364, guid: 4f2834038d7f6d646a5577260c5b42e3, type: 3}
+      propertyPath: imageCooldown
+      value: 
+      objectReference: {fileID: 683413412}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5996,14 +6032,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1571960101250678218, guid: 4f2834038d7f6d646a5577260c5b42e3, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1571960101250678218, guid: 4f2834038d7f6d646a5577260c5b42e3, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1775739148134204312, guid: 4f2834038d7f6d646a5577260c5b42e3, type: 3}
       propertyPath: m_Name
       value: CardShooter
+      objectReference: {fileID: 0}
+    - target: {fileID: 4193549446819479139, guid: 4f2834038d7f6d646a5577260c5b42e3, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5605047625346836364, guid: 4f2834038d7f6d646a5577260c5b42e3, type: 3}
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1269230190}
+    - target: {fileID: 5605047625346836364, guid: 4f2834038d7f6d646a5577260c5b42e3, type: 3}
+      propertyPath: cooldown
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5605047625346836364, guid: 4f2834038d7f6d646a5577260c5b42e3, type: 3}
+      propertyPath: imageCooldown
+      value: 
+      objectReference: {fileID: 908167094}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

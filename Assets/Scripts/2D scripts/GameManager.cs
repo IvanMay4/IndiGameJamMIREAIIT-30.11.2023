@@ -5,8 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour{
     public GameObject draggingObject;
     public GameObject currentContainer;
     public TMP_Text textGeneratorCoins;
@@ -27,24 +26,23 @@ public class GameManager : MonoBehaviour
         generatorCoins = 100;
     }
 
-    private void Start()
-    {
+    private void Start(){
         background = GetComponent<AudioSource>();
     }
 
     private void Update(){
-        textGeneratorCoins.text = $"�������:{generatorCoins}";
+        textGeneratorCoins.text = $"Энергия:{generatorCoins}";
     }
 
-    public void PlaceObject()
-    {
-        if (draggingObject != null && currentContainer != null)
-        {
+    public void PlaceObject(){
+        if (draggingObject != null && currentContainer != null){
             if (draggingObject.CompareTag("DefenceDrag")){
                 instance.generatorCoins -= generatorCostDefence;
+                draggingObject.GetComponent<ObjectDragging>().card.CoolwownActivate();
             }
             else if (draggingObject.CompareTag("GeneratorDrag")){
                 instance.generatorCoins -= generatorCostGenerator;
+                draggingObject.GetComponent<ObjectDragging>().card.CoolwownActivate();
             }
             GameObject objectGame = Instantiate(draggingObject.GetComponent<ObjectDragging>().card.object_game, currentContainer.transform);
             currentContainer.GetComponent<ObjectContainer>().isFull = true;
