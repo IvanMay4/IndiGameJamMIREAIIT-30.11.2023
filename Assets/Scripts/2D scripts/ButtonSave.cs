@@ -30,7 +30,7 @@ public class ButtonSave : MonoBehaviour
     
     public void OnStar2()
     {
-        button.GetComponent<Button>().onClick.AddListener(PlayGame);
+        button.GetComponent<Button>().onClick.AddListener(PlayGame2);
     }
     
     public void PlayGame()
