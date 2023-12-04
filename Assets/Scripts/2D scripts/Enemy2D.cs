@@ -35,7 +35,7 @@ public class Enemy2D : MonoBehaviour{
     }
 
     protected void Move(){
-        if (isStopped || !GameManager.instance.isGameRun) return;
+        if (isStopped || !GameManager.isGameRun) return;
         move.x = -speed;
     }
 
@@ -64,7 +64,7 @@ public class Enemy2D : MonoBehaviour{
             StartCoroutine(Attack(collision));
         }
         else if(collision != null){
-            if (GameManager.instance.isGameRun){
+            if (GameManager.isGameRun){
                 collision.gameObject.GetComponent<Controller>().ReceiveDamage(damage);
                 GameManager.instance.background.PlayOneShot(GameManager.instance.damageTrash, 0.1f);
             }

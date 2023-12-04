@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour{
     public int generatorCoinsNew = 50;
     public int generatorCooldown = 30 * 60;
     int time = 0;
-    public bool isGameRun = false;
+    public static bool isGameRun = false;
     public GameObject menuPause;
     
 

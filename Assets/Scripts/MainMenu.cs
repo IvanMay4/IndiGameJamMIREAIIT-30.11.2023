@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public void PlayGame(){
-        GameManager.instance.isGameRun = true;
+        GameManager.isGameRun = true;
         SceneManager.LoadScene(PlayerPrefs.GetInt("IsSecondCompleted") == 1? "Level 3": PlayerPrefs.GetInt("IsFirstCompleted") == 1 ? "Level 2": "Level 1");
     }
 

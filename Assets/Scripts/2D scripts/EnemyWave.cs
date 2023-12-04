@@ -125,7 +125,7 @@ public class EnemyWave : MonoBehaviour{
             SceneManager.LoadScene("Win");
             GameManager.instance.isThirdCompleted = true;
         }
-        if (!GameManager.instance.isGameRun) return;
+        if (!GameManager.isGameRun) return;
         time++;
         if(enemies.Length == 0 && currentWaves < countWaves){
             currentWaves++;

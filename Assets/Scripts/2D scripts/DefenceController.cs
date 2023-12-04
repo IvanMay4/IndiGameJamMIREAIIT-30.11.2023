@@ -21,7 +21,7 @@ public class DefenceController : Controller{
     }
 
     private void Update(){
-        if (!GameManager.instance.isGameRun) return;
+        if (!GameManager.isGameRun) return;
         if (enemyWave.GetCountEnemiesInLine(line) > 0 && isAttacking == false)
             if (enemyWave.FindFirstNoNullEnemy() != null)
                 if (objectContainer.transform.position.x <= enemyWave.FindFirstNoNullEnemy().transform.position.x)
