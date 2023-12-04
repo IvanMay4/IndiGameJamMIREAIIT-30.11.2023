@@ -41,8 +41,7 @@ public class GameManager : MonoBehaviour{
     }
 
     private void Update(){
-        if (SceneManager.GetActiveScene().name != "Level 1" && SceneManager.GetActiveScene().name != "Level 2" &&
-            SceneManager.GetActiveScene().name != "Level 3")
+        if (SceneManager.GetActiveScene().name != "MainMenu")
         {
             textGeneratorCoins.text = $"{generatorCoins}";
         }

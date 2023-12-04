@@ -1121,7 +1121,6 @@ GameObject:
   - component: {fileID: 1199394167}
   - component: {fileID: 1199394166}
   - component: {fileID: 1199394165}
-  - component: {fileID: 1199394168}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -1242,18 +1241,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1199394163}
   m_CullTransparentMesh: 1
---- !u!114 &1199394168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1199394163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182e6e8ae6895af4181a42cca6f3cbbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1310899077
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,70 +1470,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1355814727}
   m_CullTransparentMesh: 1
---- !u!1 &1363825614
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1363825616}
-  - component: {fileID: 1363825615}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1363825615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1363825614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74cf7768e7bfc314588275b958729fb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  draggingObject: {fileID: 0}
-  currentContainer: {fileID: 0}
-  textGeneratorCoins: {fileID: 0}
-  generatorCostDefence: 100
-  generatorCostGenerator: 50
-  generatorCostTank: 75
-  background: {fileID: 0}
-  placeDefence: {fileID: 0}
-  paperDamage: {fileID: 0}
-  paperBullet: {fileID: 0}
-  raycoon: {fileID: 0}
-  damageTrash: {fileID: 0}
-  victorySound: {fileID: 0}
-  defeatSound: {fileID: 0}
-  kabanSound: {fileID: 0}
-  vihuholSound: {fileID: 0}
-  isFirstCompleted: 0
-  isSecondCompleted: 0
-  isThirdCompleted: 0
-  generatorCoins: 0
---- !u!4 &1363825616
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1363825614}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1036.0835, y: 414.0874, z: -10.46294}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1411031302
 GameObject:
   m_ObjectHideFlags: 0
@@ -1788,4 +1711,3 @@ SceneRoots:
   - {fileID: 1997025781}
   - {fileID: 1411031305}
   - {fileID: 673291771}
-  - {fileID: 1363825616}

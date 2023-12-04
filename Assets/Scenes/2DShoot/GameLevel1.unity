@@ -174,6 +174,9 @@ MonoBehaviour:
   defeatSound: {fileID: 8300000, guid: ccc7ef44a5dd6d54dbca9a7d8660a75f, type: 3}
   kabanSound: {fileID: 8300000, guid: a2f96b0cc0adb3d48a68a828c8fee4be, type: 3}
   vihuholSound: {fileID: 8300000, guid: 7fc93c000d7c70c4c964d1a560a82f9b, type: 3}
+  isFirstCompleted: 0
+  isSecondCompleted: 0
+  isThirdCompleted: 0
   generatorCoins: 1000
 --- !u!4 &15018142
 Transform:
