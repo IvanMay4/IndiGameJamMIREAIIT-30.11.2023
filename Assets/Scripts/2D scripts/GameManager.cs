@@ -5,11 +5,14 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour{
     public GameObject draggingObject;
     public GameObject currentContainer;
     public TMP_Text textGeneratorCoins;
+    public TMP_Text textGeneratorCoinsNew;
+    public Image imageGeneratorCoinsNew;
     public int generatorCostDefence = 100;
     public int generatorCostGenerator = 50;
     public int generatorCostTank = 75;
@@ -26,6 +29,9 @@ public class GameManager : MonoBehaviour{
     public bool isFirstCompleted;
     public bool isSecondCompleted;
     public bool isThirdCompleted;
+    public int generatorCoinsNew = 50;
+    public int generatorCooldown = 30 * 60;
+    int time = 0;
     
 
     public static GameManager instance;
@@ -47,6 +53,20 @@ public class GameManager : MonoBehaviour{
         if (SceneManager.GetActiveScene().name != "MainMenu")
         {
             textGeneratorCoins.text = $"{generatorCoins}";
+        }
+    }
+
+    private void FixedUpdate() {
+        time++;
+        if (time >= generatorCooldown){
+            time = 0;
+            generatorCoins += generatorCoinsNew;
+            textGeneratorCoinsNew.gameObject.SetActive(true);
+            imageGeneratorCoinsNew.gameObject.SetActive(true);
+        }
+        if(time >= 2 * 60){
+            textGeneratorCoinsNew.gameObject.SetActive(false);
+            imageGeneratorCoinsNew.gameObject.SetActive(false);
         }
     }
 
