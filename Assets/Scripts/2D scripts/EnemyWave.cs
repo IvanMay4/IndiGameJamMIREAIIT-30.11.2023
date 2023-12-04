@@ -109,21 +109,22 @@ public class EnemyWave : MonoBehaviour{
         lines[7] = new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5};
     }
 
-    void FixedUpdate()
-    {
-        if (currentWaves == countWaves && enemies.Length == 0 && SceneManager.GetActiveScene().name == "GameLevel1")
-        {
+    void FixedUpdate(){
+        if (currentWaves == countWaves && enemies.Length == 0 && SceneManager.GetActiveScene().name == "GameLevel1"){
+            PlayerPrefs.SetInt("IsFirstCompleted", 1);
             SceneManager.LoadScene("Level 2");
             GameManager.instance.isFirstCompleted = true;
         }
-        else if (currentWaves == countWaves && enemies.Length == 0 &&
-                 SceneManager.GetActiveScene().name == "GameLevel2")
-        {
+        else if (currentWaves == countWaves && enemies.Length == 0 && SceneManager.GetActiveScene().name == "GameLevel2"){
+            PlayerPrefs.SetInt("IsSecondCompleted", 1);
             SceneManager.LoadScene("Level 3");
             GameManager.instance.isSecondCompleted = true;
         }
-        else if(currentWaves == countWaves && enemies.Length == 0 && SceneManager.GetActiveScene().name == "GameLevel3")
+        else if(currentWaves == countWaves && enemies.Length == 0 && SceneManager.GetActiveScene().name == "GameLevel3"){
+            PlayerPrefs.SetInt("IsThirdCompleted", 1);
             SceneManager.LoadScene("Win");
+            GameManager.instance.isThirdCompleted = true;
+        }
         time++;
         if(enemies.Length == 0 && currentWaves < countWaves){
             currentWaves++;

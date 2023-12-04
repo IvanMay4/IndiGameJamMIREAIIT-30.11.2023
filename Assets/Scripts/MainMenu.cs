@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene(PlayerPrefs.GetInt("IsSecondCompleted") == 1? "Level 3": PlayerPrefs.GetInt("IsFirstCompleted") == 1 ? "Level 2": "Level 1");
     }
 
     public void Settings()

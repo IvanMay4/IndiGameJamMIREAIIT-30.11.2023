@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour{
     private void Awake(){
         instance = this;
         generatorCoins = 100;
+        if (!PlayerPrefs.HasKey("IsFirstCompleted")) PlayerPrefs.SetInt("IsFirstCompleted", 0);
+        if (!PlayerPrefs.HasKey("IsSecondCompleted")) PlayerPrefs.SetInt("IsSecondCompleted", 0);
+        if (!PlayerPrefs.HasKey("IsThirdCompleted")) PlayerPrefs.SetInt("IsThirdCompleted", 0);
     }
 
     private void Start(){
