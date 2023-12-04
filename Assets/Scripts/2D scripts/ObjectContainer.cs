@@ -17,9 +17,15 @@ public class ObjectContainer : MonoBehaviour
     }
 
     public void OnTriggerEnter2D(Collider2D collision){
+        if (gameManager.draggingObject != null && isFull == true){
+            if (gameManager.draggingObject.CompareTag("SpatulaDrag")){
+                backgroundImage.enabled = true;
+            }
+        }
         if (gameManager.draggingObject != null && isFull == false){
             gameManager.currentContainer = gameObject;
-            backgroundImage.enabled = true;
+            if(!gameManager.draggingObject.CompareTag("SpatulaDrag"))
+                backgroundImage.enabled = true;
         }
     }
 

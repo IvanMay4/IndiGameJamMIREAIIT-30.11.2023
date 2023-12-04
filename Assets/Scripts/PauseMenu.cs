@@ -9,5 +9,8 @@ public class PauseMenu : MonoBehaviour{
         gameObject.SetActive(false);
     }
 
-    public void ExitMainMenu() => SceneManager.LoadScene("MainMenu");
+    public void ExitMainMenu(){
+        GameManager.instance.isGameRun = false;
+        SceneManager.LoadScene("MainMenu");
+    }
 }

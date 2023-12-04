@@ -3781,7 +3781,7 @@ SpriteRenderer:
   m_Size: {x: 0.42, y: 2.14}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &815160245
@@ -4532,6 +4532,11 @@ PrefabInstance:
 --- !u!224 &906502555 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6160430459886766877, guid: e0d20ea2be901cd4f86ac2cad9238c8b, type: 3}
+  m_PrefabInstance: {fileID: 906502554}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &906502556 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2421987420252772216, guid: e0d20ea2be901cd4f86ac2cad9238c8b, type: 3}
   m_PrefabInstance: {fileID: 906502554}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &907145158
@@ -7436,7 +7441,7 @@ MonoBehaviour:
   generatorCoinsNew: 50
   generatorCooldown: 1800
   isGameRun: 1
-  menuPause: {fileID: 0}
+  menuPause: {fileID: 906502556}
   generatorCoins: 1000
 --- !u!4 &1479961664
 Transform:
