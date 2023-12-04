@@ -35,7 +35,7 @@ public class Enemy2D : MonoBehaviour{
     }
 
     protected void Move(){
-        if (isStopped)return;
+        if (isStopped || !GameManager.instance.isGameRun) return;
         move.x = -speed;
     }
 
@@ -64,9 +64,11 @@ public class Enemy2D : MonoBehaviour{
             StartCoroutine(Attack(collision));
         }
         else if(collision != null){
-            collision.gameObject.GetComponent<Controller>().ReceiveDamage(damage);
+            if (GameManager.instance.isGameRun){
+                collision.gameObject.GetComponent<Controller>().ReceiveDamage(damage);
+                GameManager.instance.background.PlayOneShot(GameManager.instance.damageTrash, 0.1f);
+            }
             yield return new WaitForSeconds(damageCooldown);
-            GameManager.instance.background.PlayOneShot(GameManager.instance.damageTrash, 0.1f);
             StartCoroutine(Attack(collision));
         }
     }

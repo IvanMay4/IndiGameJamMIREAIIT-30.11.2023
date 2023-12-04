@@ -21,6 +21,7 @@ public class CardObject : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoi
     }
 
     private void FixedUpdate() {
+        if (!GameManager.instance.isGameRun) return;
         if (!isCooldown) return;
         time--;
         imageCooldown.fillAmount = 1f / cooldown * time;

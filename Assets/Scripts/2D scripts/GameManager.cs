@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour{
     public int generatorCoinsNew = 50;
     public int generatorCooldown = 30 * 60;
     int time = 0;
+    public bool isGameRun = true;
+    public GameObject menuPause;
     
 
     public static GameManager instance;
@@ -50,13 +52,17 @@ public class GameManager : MonoBehaviour{
     }
 
     private void Update(){
-        if (SceneManager.GetActiveScene().name != "MainMenu")
-        {
+        if (SceneManager.GetActiveScene().name != "MainMenu"){
             textGeneratorCoins.text = $"{generatorCoins}";
+        }
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            menuPause.gameObject.SetActive(isGameRun);
+            isGameRun = !isGameRun;
         }
     }
 
     private void FixedUpdate() {
+        if (!isGameRun) return;
         time++;
         if (time >= generatorCooldown){
             time = 0;
@@ -71,7 +77,7 @@ public class GameManager : MonoBehaviour{
     }
 
     public void PlaceObject(){
-        if (draggingObject != null && currentContainer != null){
+        if (draggingObject != null && currentContainer != null && isGameRun){
             if (draggingObject.CompareTag("DefenceDrag")){
                 instance.generatorCoins -= generatorCostDefence;
                 draggingObject.GetComponent<ObjectDragging>().card.CoolwownActivate();

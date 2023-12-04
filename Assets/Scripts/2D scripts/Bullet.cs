@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour{
     public int damage;
     
     void Update(){
+        if (!GameManager.instance.isGameRun) return;
         transform.Translate(new Vector3(0 , movementSpeed, 0));
     }
     

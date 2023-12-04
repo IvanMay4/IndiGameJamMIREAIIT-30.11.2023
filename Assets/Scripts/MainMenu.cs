@@ -5,39 +5,33 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame()
-    {
+    public void PlayGame(){
+        GameManager.instance.isGameRun = true;
         SceneManager.LoadScene(PlayerPrefs.GetInt("IsSecondCompleted") == 1? "Level 3": PlayerPrefs.GetInt("IsFirstCompleted") == 1 ? "Level 2": "Level 1");
     }
 
-    public void Settings()
-    {
+    public void Settings(){
         SceneManager.LoadScene("Settings");
     }
 
-    public void BackButton()
-    {
+    public void BackButton(){
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void QuitGame() 
-    {
+    public void QuitGame() {
         Debug.Log("QUIT!");
         Application.Quit();
     }
     
-    public void Level1()
-    {
+    public void Level1(){
         SceneManager.LoadScene("GameLevel1");
     }
     
-    public void Level2()
-    {
+    public void Level2(){
         SceneManager.LoadScene("GameLevel2");
     }
     
-    public void Level3()
-    {
+    public void Level3(){
         SceneManager.LoadScene("GameLevel3");
     }
 }
