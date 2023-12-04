@@ -8,7 +8,8 @@ public class Enemy2D : MonoBehaviour{
     protected int currentHP = 0;
     protected float speed = 1f;
     public int damage;
-    public bool isStopped;
+    public bool isStopped = false;
+    public bool isAttack = false;
     public float damageCooldown;
     public int line;
     protected Vector3 move = new Vector3(0, 0, 0);
@@ -19,8 +20,7 @@ public class Enemy2D : MonoBehaviour{
         damage = 2;
     }
 
-    private void Start()
-    {
+    private void Start(){
         anim = GetComponent<Animator>();
     }
 
@@ -28,8 +28,7 @@ public class Enemy2D : MonoBehaviour{
         move = new Vector3(0, 0, 0);
         Move();
         transform.position += move;
-        if (transform.position.x <= 0)
-        {
+        if (transform.position.x <= 0){
             GameManager.instance.background.PlayOneShot(GameManager.instance.defeatSound,0.1f);
             Settings.OpenGameOver();
         }
@@ -42,14 +41,29 @@ public class Enemy2D : MonoBehaviour{
 
     public void OnTriggerEnter2D(Collider2D collision){
         if (collision.gameObject.layer == 8){
+            isAttack = true;
             StartCoroutine(Attack(collision));
             isStopped = true;
         }
     }
 
+    public void OnTriggerStay2D(Collider2D collision){
+        if (collision.gameObject.layer == 8){
+            isStopped = true;
+            isAttack = true;
+        }
+    }
+
     public IEnumerator Attack(Collider2D collision){
-        if (collision == null) isStopped = false;
-        else{
+        if (collision == null){
+            isStopped = false;
+            isAttack = false;
+        }
+        if (!isAttack && collision != null){
+            yield return new WaitForSeconds(1);
+            StartCoroutine(Attack(collision));
+        }
+        else if(collision != null){
             collision.gameObject.GetComponent<Controller>().ReceiveDamage(damage);
             yield return new WaitForSeconds(damageCooldown);
             GameManager.instance.background.PlayOneShot(GameManager.instance.damageTrash, 0.1f);
@@ -59,14 +73,11 @@ public class Enemy2D : MonoBehaviour{
     
 
     public void ReceiveDamage(int damage){
-        if (currentHP - damage <= 0)
-        {
+        if (currentHP - damage <= 0){
             Destroy(gameObject);
             GameManager.instance.background.PlayOneShot(GameManager.instance.paperDamage, 0.2f);
         }
-        
-        else
-        {
+        else{
             currentHP -= damage;
             GameManager.instance.background.PlayOneShot(GameManager.instance.paperDamage, 0.2f);
         }
