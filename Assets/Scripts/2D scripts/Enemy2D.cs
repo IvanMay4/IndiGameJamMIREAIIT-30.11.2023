@@ -66,7 +66,6 @@ public class Enemy2D : MonoBehaviour{
         else if(collision != null){
             if (GameManager.isGameRun){
                 collision.gameObject.GetComponent<Controller>().ReceiveDamage(damage);
-                GameManager.instance.background.PlayOneShot(GameManager.instance.damageTrash, 0.1f);
             }
             yield return new WaitForSeconds(damageCooldown);
             StartCoroutine(Attack(collision));
