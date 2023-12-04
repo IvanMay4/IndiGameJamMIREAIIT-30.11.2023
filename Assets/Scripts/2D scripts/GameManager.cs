@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour{
 
     public static GameManager instance;
     public int generatorCoins;
+    
+    
 
     private void Awake(){
         instance = this;
