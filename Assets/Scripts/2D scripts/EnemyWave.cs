@@ -25,7 +25,10 @@ public class EnemyWave : MonoBehaviour{
     string secondEnemy2DName = "SecondEnemy2D";
     string thirdEnemy2DName = "ThirdEnemy2D";
 
-    void Start(){
+    public static EnemyWave en2D;
+
+    void Start()
+    {
         currentWaves = 0;
         currentEnemySpawn = 0;
         if (SceneManager.GetActiveScene().name == "GameLevel1") GameLevel1Scene();
@@ -109,9 +112,16 @@ public class EnemyWave : MonoBehaviour{
     void FixedUpdate()
     {
         if (currentWaves == countWaves && enemies.Length == 0 && SceneManager.GetActiveScene().name == "GameLevel1")
+        {
             SceneManager.LoadScene("Level 2");
-        else if(currentWaves == countWaves && enemies.Length == 0 && SceneManager.GetActiveScene().name == "GameLevel2")
+            GameManager.instance.isFirstCompleted = true;
+        }
+        else if (currentWaves == countWaves && enemies.Length == 0 &&
+                 SceneManager.GetActiveScene().name == "GameLevel2")
+        {
             SceneManager.LoadScene("Level 3");
+            GameManager.instance.isSecondCompleted = true;
+        }
         else if(currentWaves == countWaves && enemies.Length == 0 && SceneManager.GetActiveScene().name == "GameLevel3")
             SceneManager.LoadScene("Win");
         time++;

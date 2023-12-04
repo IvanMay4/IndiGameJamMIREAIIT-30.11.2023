@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour{
     public GameObject draggingObject;
@@ -22,6 +23,9 @@ public class GameManager : MonoBehaviour{
     public AudioClip defeatSound;
     public AudioClip kabanSound;
     public AudioClip vihuholSound;
+    public bool isFirstCompleted = false;
+    public bool isSecondCompleted = false;
+    public bool isThirdCompleted = false;
     
 
     public static GameManager instance;
@@ -37,7 +41,11 @@ public class GameManager : MonoBehaviour{
     }
 
     private void Update(){
-        textGeneratorCoins.text = $"{generatorCoins}";
+        if (SceneManager.GetActiveScene().name != "Level 1" && SceneManager.GetActiveScene().name != "Level 2" &&
+            SceneManager.GetActiveScene().name != "Level 3")
+        {
+            textGeneratorCoins.text = $"{generatorCoins}";
+        }
     }
 
     public void PlaceObject(){
