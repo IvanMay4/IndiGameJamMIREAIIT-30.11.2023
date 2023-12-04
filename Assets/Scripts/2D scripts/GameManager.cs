@@ -23,9 +23,9 @@ public class GameManager : MonoBehaviour{
     public AudioClip defeatSound;
     public AudioClip kabanSound;
     public AudioClip vihuholSound;
-    public bool isFirstCompleted = false;
-    public bool isSecondCompleted = false;
-    public bool isThirdCompleted = false;
+    public bool isFirstCompleted;
+    public bool isSecondCompleted;
+    public bool isThirdCompleted;
     
 
     public static GameManager instance;
