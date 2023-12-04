@@ -5,18 +5,33 @@ using UnityEngine;
 public class GeneratorController : Controller{
     int generatorPower;
     int generatorCooldown;
+    int firstgeneratorCooldown;
     int time;
+    private bool isFirst;
 
     void Awake(){
-        health = 100;
+        health = 200;
         generatorPower = 50;
-        generatorCooldown = 1 * 60;
+        generatorCooldown = 1 * 1200;
         time = 0;
+        firstgeneratorCooldown = 1 * 420;
+        isFirst = true;
     }
 
     void FixedUpdate(){
         time++;
-        if(time >= generatorCooldown){
+        if (isFirst)
+        {
+            if (time >= firstgeneratorCooldown)
+            {
+                anim.SetTrigger("isGenerating");
+                GameManager.instance.generatorCoins += generatorPower;
+                time = 0;
+                isFirst = false;
+            }
+        }
+        else if(time >= generatorCooldown){
+            anim.SetTrigger("isGenerating");
             GameManager.instance.generatorCoins += generatorPower;
             time = 0;
         }
