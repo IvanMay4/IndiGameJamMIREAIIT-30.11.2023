@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
-{
+public class MainMenu : MonoBehaviour{
+    private void Awake(){
+        if (!PlayerPrefs.HasKey("MusicVolume"))
+            PlayerPrefs.SetFloat("MusicVolume", 1f);
+        Settings.volume = PlayerPrefs.GetFloat("MusicVolume");
+    }
+
     public void PlayGame(){
         GameManager.isGameRun = true;
         SceneManager.LoadScene(PlayerPrefs.GetInt("IsSecondCompleted") == 1? "Level 3": PlayerPrefs.GetInt("IsFirstCompleted") == 1 ? "Level 2": "Level 1");
     }
 
-    public void Settings(){
+    public void LoadSettings(){
         SceneManager.LoadScene("Settings");
     }
 

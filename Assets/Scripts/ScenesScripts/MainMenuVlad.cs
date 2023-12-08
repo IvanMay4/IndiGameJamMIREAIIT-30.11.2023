@@ -21,6 +21,5 @@ public class MainMenuVlad : MonoBehaviour{
     public void LoadGame(){
         SceneManager.LoadScene("Game");
         Settings.isLoadGame = true;
-        Saver.LoadSettings();
     }
 }

@@ -31,7 +31,7 @@ public class DefenceController : Controller{
         if (attackTime <= Time.time && isAttacking){
             animdef.SetTrigger("isAttacking");
             GameObject bulletIntstance = Instantiate(bullet, transform);
-            GameManager.instance.background.PlayOneShot(GameManager.instance.paperBullet, 0.1f);
+            GameManager.instance.background.PlayOneShot(GameManager.instance.paperBullet, Settings.volume);
             bulletIntstance.GetComponent<Bullet>().damage = damage;
             attackTime = Time.time + attackCooldown;
         }

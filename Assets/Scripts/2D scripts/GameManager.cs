@@ -47,10 +47,6 @@ public class GameManager : MonoBehaviour{
         if (!PlayerPrefs.HasKey("IsThirdCompleted")) PlayerPrefs.SetInt("IsThirdCompleted", 0);
     }
 
-    private void Start(){
-        background = GetComponent<AudioSource>();
-    }
-
     private void Update(){
         if (SceneManager.GetActiveScene().name != "MainMenu"){
             textGeneratorCoins.text = $"{generatorCoins}";
@@ -62,7 +58,8 @@ public class GameManager : MonoBehaviour{
     }
 
     private void FixedUpdate() {
-        if (!isGameRun && !(SceneManager.GetActiveScene().name == "GameLevel1" || SceneManager.GetActiveScene().name == "GameLevel2" || SceneManager.GetActiveScene().name == "GameLevel3")) return;
+        if (!isGameRun) return;
+        if (!(SceneManager.GetActiveScene().name == "GameLevel1" || SceneManager.GetActiveScene().name == "GameLevel2" || SceneManager.GetActiveScene().name == "GameLevel3")) return;
         time++;
         if (time >= generatorCooldown){
             time = 0;
@@ -102,7 +99,7 @@ public class GameManager : MonoBehaviour{
                 currentContainer.GetComponent<ObjectContainer>().isFull = true;
                 objectGame.GetComponent<Controller>().objectContainer = currentContainer.GetComponent<ObjectContainer>();
                 objectGame.GetComponent<Controller>().line = currentContainer.GetComponent<ObjectContainer>().line;
-                background.PlayOneShot(placeDefence, 0.1f);
+                background.PlayOneShot(placeDefence, Settings.volume);
             }
         }
     }

@@ -29,7 +29,7 @@ public class Enemy2D : MonoBehaviour{
         Move();
         transform.position += move;
         if (transform.position.x <= 0){
-            GameManager.instance.background.PlayOneShot(GameManager.instance.defeatSound,0.1f);
+            GameManager.instance.background.PlayOneShot(GameManager.instance.defeatSound, Settings.volume);
             Settings.OpenGameOver();
         }
     }
@@ -66,7 +66,7 @@ public class Enemy2D : MonoBehaviour{
         else if(collision != null){
             if (GameManager.isGameRun){
                 collision.gameObject.GetComponent<Controller>().ReceiveDamage(damage);
-                GameManager.instance.background.PlayOneShot(GameManager.instance.damageTrash, 0.1f);
+                GameManager.instance.background.PlayOneShot(GameManager.instance.damageTrash, Settings.volume);
             }
             yield return new WaitForSeconds(damageCooldown);
             StartCoroutine(Attack(collision));
@@ -77,11 +77,11 @@ public class Enemy2D : MonoBehaviour{
     public void ReceiveDamage(int damage){
         if (currentHP - damage <= 0){
             Destroy(gameObject);
-            GameManager.instance.background.PlayOneShot(GameManager.instance.paperDamage, 0.2f);
+            GameManager.instance.background.PlayOneShot(GameManager.instance.paperDamage, Settings.volume);
         }
         else{
             currentHP -= damage;
-            GameManager.instance.background.PlayOneShot(GameManager.instance.paperDamage, 0.2f);
+            GameManager.instance.background.PlayOneShot(GameManager.instance.paperDamage, Settings.volume);
         }
     }
 }

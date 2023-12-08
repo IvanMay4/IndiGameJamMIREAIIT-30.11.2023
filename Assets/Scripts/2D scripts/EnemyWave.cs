@@ -142,13 +142,13 @@ public class EnemyWave : MonoBehaviour{
         if(time == cooldowns[currentWaves - 1][currentEnemySpawn]){
             enemies[currentEnemySpawn] = Instantiate(GetEnemyPrefab(enemiesWaves[currentWaves - 1][currentEnemySpawn]), GetEnemyPosition(lines[currentWaves - 1][currentEnemySpawn]), new Quaternion());
             if (enemiesWaves[currentWaves - 1][currentEnemySpawn] == firstEnemy2DName){
-                GameManager.instance.background.PlayOneShot(GameManager.instance.raycoon, 0.1f);
+                GameManager.instance.background.PlayOneShot(GameManager.instance.raycoon, Settings.volume);
             }
             if (enemiesWaves[currentWaves - 1][currentEnemySpawn] == secondEnemy2DName){
-                GameManager.instance.background.PlayOneShot(GameManager.instance.kabanSound, 0.1f);
+                GameManager.instance.background.PlayOneShot(GameManager.instance.kabanSound, Settings.volume);
             }
             if (enemiesWaves[currentWaves - 1][currentEnemySpawn] == thirdEnemy2DName){
-                GameManager.instance.background.PlayOneShot(GameManager.instance.vihuholSound, 0.1f);
+                GameManager.instance.background.PlayOneShot(GameManager.instance.vihuholSound, Settings.volume);
             }
             enemies[currentEnemySpawn].transform.SetParent(gameObject.transform, false);
             enemies[currentEnemySpawn].line = lines[currentWaves - 1][currentEnemySpawn];

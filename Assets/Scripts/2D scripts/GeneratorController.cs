@@ -12,18 +12,17 @@ public class GeneratorController : Controller{
     void Awake(){
         health = 200;
         generatorPower = 50;
-        generatorCooldown = 1 * 1200;
+        generatorCooldown = 20 * 60;
         time = 0;
-        firstgeneratorCooldown = 1 * 420;
+        firstgeneratorCooldown = 7 * 60;
         isFirst = true;
     }
 
     void FixedUpdate(){
+        if (!GameManager.isGameRun) return;
         time++;
-        if (isFirst)
-        {
-            if (time >= firstgeneratorCooldown)
-            {
+        if (isFirst){
+            if (time >= firstgeneratorCooldown){
                 anim.SetTrigger("isGenerating");
                 GameManager.instance.generatorCoins += generatorPower;
                 time = 0;

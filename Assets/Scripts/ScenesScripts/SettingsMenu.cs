@@ -12,22 +12,12 @@ public class SettingsMenu : MonoBehaviour{
     private void Start(){
         if (!File.Exists(Settings.filenameSaveSettings))
             return;
-        Saver.LoadSettings();
         sliderVolume.value = Settings.volume;
     }
 
     private void LateUpdate(){
         Settings.volume = sliderVolume.value;
-        textValueComplexity.text = Settings.levelComplexity == 1 ? "Ë¸ãêèé" : Settings.levelComplexity == 2 ? "Ñğåäíèé" : Settings.levelComplexity == 3 ? "Òÿæ¸ëûé" : "None";
-        textValueComplexity.color = Settings.levelComplexity == 1 ? Color.green : Settings.levelComplexity == 2 ? Color.yellow : Settings.levelComplexity == 3 ? Color.red : Color.white;
-        Saver.SaveSettings();
     }
-
-    public void ComplexityEasy() => Settings.levelComplexity = 1;
-
-    public void ComplexityMedium() => Settings.levelComplexity = 2;
-
-    public void ComplexityHard() => Settings.levelComplexity = 3;
 
     public void ExitMain() => Settings.OpenMainMenu();
 }
