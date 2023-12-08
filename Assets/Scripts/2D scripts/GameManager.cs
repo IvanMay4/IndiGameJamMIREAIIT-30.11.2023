@@ -91,12 +91,11 @@ public class GameManager : MonoBehaviour{
             }
             if (draggingObject.CompareTag("SpatulaDrag")){
                 if (currentContainer.GetComponent<ObjectContainer>().isFull){
-                    Debug.Log("Spatula");
                     currentContainer.GetComponent<ObjectContainer>().isFull = false;
                     Destroy(currentContainer.GetComponentInChildren<Controller>().gameObject);
                 }
             }
-            else { 
+            else{
                 GameObject objectGame = Instantiate(draggingObject.GetComponent<ObjectDragging>().card.object_game, currentContainer.transform);
                 currentContainer.GetComponent<ObjectContainer>().isFull = true;
                 objectGame.GetComponent<Controller>().objectContainer = currentContainer.GetComponent<ObjectContainer>();

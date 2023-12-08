@@ -168,8 +168,9 @@ public class EnemyWave : MonoBehaviour{
     }
 
     private void DeleteNullEnemies(){
-        for(int i = 0;i < enemies.Length;i++)
-            if (enemies[i] == null){
+        int i = 0;
+        while(i < enemies.Length){
+            if (enemies[i] == null) {
                 Enemy2D[] tmp = new Enemy2D[enemies.Length - 1];
                 for (int j = 0; j < i; j++)
                     tmp[j] = enemies[j];
@@ -180,6 +181,8 @@ public class EnemyWave : MonoBehaviour{
                     enemies[j] = tmp[j];
                 i--;
             }
+            i++;
+        }
     }
 
     public Enemy2D FindFirstNoNullEnemy(){
